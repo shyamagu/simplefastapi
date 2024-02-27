@@ -31,6 +31,7 @@ jobs:
         run: pip install -r requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r -x \*venv\*
 
@@ -62,6 +63,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'shyamagu-fastapi'
+          app-name: 'temp-test-novenv'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DB8B7EBABC55470885D3C478C249476A }}
+          publish-profile: ${{ secrets.AZURE_APP_PUB_SECRET }}
