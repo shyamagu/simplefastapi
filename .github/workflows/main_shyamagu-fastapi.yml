@@ -33,7 +33,7 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r -x \*venv\*
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
@@ -63,6 +63,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'temp-test-novenv'
+          app-name: 'temp-test-onvenv'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZURE_APP_PUB_SECRET }}
+          publish-profile: ${{ secrets.APS_ONVENV }}
